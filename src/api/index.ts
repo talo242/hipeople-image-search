@@ -1,18 +1,11 @@
 import axios, { AxiosError } from 'axios';
+import { Image } from '../interfaces/Image/Image';
 
-interface Image {
-    id: string;
-    urls: {
-        thumb: string;
-        regular: string
-    }
-    [key: string]: any;
-}
 
 interface SearchImageResponse {
     total: number;
     total_pages: number;
-    results: Image[]
+    results: Image[];
 }
 
 const client = axios.create({

@@ -16,7 +16,6 @@ const Input: React.FC<InputProps> = (props) => {
 
     const handleSubmitForm = (e: React.ChangeEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(query);
         searchImage(query)
     }
 

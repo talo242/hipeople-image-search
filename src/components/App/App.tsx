@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import './App.css';
 import Form from '../Form'
+import ImageList from '../ImageList';
 
 const MainContainer = styled.div`
   background-color: #efefef;
@@ -22,6 +23,7 @@ function App() {
     <MainContainer>
       <Title>HiPeople's Image Searcher</Title>
       <Form />
+      <ImageList />
     </MainContainer>
   );
 }
