@@ -1,30 +1,56 @@
 import React from 'react';
-import { Dispatch } from 'redux';
+import styled from 'styled-components';
+import Button from '../Button';
+
+const Form = styled.form`
+    width: 100%;
+    display: flex;
+    max-width: 640px;
+`;
+
+const StyledInput = styled.input`
+  font-family: 'Work Sans', sans-serif;
+  height: 40px;
+  padding: 0 8px;
+  border: 1px solid #fcfcfc;
+  border-radius: 10px;
+  flex: 1;
+  margin-right: 16px;
+
+  &:focus {
+    border-color: #96e2b6;
+    outline: #96e2b6;
+  }
+`;
 
 interface InputProps {
-    searchImage: any;
-    setQuery: (payload: any) => void;
-    query: string;
+  searchImage: (query: string) => void;
+  setQuery: (query: string) => void;
+  query: string;
 }
 
 const Input: React.FC<InputProps> = (props) => {
-    const { setQuery, query, searchImage } = props;
+  const { setQuery, query, searchImage } = props;
 
-    const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => (
-        setQuery(e.target.value)
-    );
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => (
+    setQuery(e.target.value)
+  );
 
-    const handleSubmitForm = (e: React.ChangeEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        searchImage(query)
-    }
+  const handleSubmitForm = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    return (
-        <form onSubmit={handleSubmitForm}>
-            <input onChange={handleChangeInput} value={query} />
-            <button type="submit">Search</button>
-        </form>
-    )
+    if (query === '') return null;
+    searchImage(query)
+  }
+
+  console.log(query)
+
+  return (
+    <Form onSubmit={handleSubmitForm}>
+      <StyledInput onChange={handleChangeInput} value={query} />
+      <Button disabled={query === ''}>Search</Button>
+    </Form>
+  )
 };
 
 export default Input;

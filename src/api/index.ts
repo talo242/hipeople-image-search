@@ -1,12 +1,6 @@
 import axios, { AxiosError } from 'axios';
-import { Image } from '../interfaces/Image/Image';
-
-
-interface SearchImageResponse {
-    total: number;
-    total_pages: number;
-    results: Image[];
-}
+import Image from '../interfaces/Image/Image.interface';
+import SearchImageResponse from '../interfaces/SearchImageResponse/SearchImageResponse.interface';
 
 const client = axios.create({
     baseURL: 'https://api.unsplash.com/',

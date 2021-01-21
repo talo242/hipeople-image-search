@@ -11,18 +11,26 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
+  font-family: 'Work Sans', sans-serif;
 `;
 
 const Title = styled.h1`
+  font-family: 'Lora', serif;
+`;
+
+const SearchContainer = styled.div`
+  margin-top: 16px;
 `;
 
 function App() {
   return (
     <MainContainer>
-      <Title>HiPeople's Image Searcher</Title>
-      <Form />
+      <SearchContainer>
+        <Title>HiPeople's Image Searcher</Title>
+        <Form />
+      </SearchContainer>
       <ImageList />
     </MainContainer>
   );
