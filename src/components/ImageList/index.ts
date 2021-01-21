@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { AppState } from '../../redux/reducers';
 import ImageList from './ImageList';
-import { searchImage } from '../../redux/actions';
+import { searchImage, selectImage } from '../../redux/actions';
 
 const mapStateToProps = (state: AppState) => ({
   query: state.searchQuery.query,
@@ -10,5 +10,5 @@ const mapStateToProps = (state: AppState) => ({
 
 export default connect(
   mapStateToProps,
-  { searchImage }
+  { searchImage, selectImage }
 )(ImageList)

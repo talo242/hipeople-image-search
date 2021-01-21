@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';
-import { SET_QUERY, SEARCH_IMAGES, FETCH_MORE } from './actionTypes';
+import { SET_QUERY, SEARCH_IMAGES, FETCH_MORE, SELECT_IMAGE } from './actionTypes';
 import { searchImageService } from '../api';
+import Image from '../interfaces/Image/Image.interface';
 
 export const setQuery = (query: string) => ({
     type: SET_QUERY,
@@ -22,3 +23,8 @@ export const searchImage = (query: string, page = 1) => async (dispatch: Dispatc
         })
     }
 };
+
+export const selectImage = (image: Image | null) => ({
+    type: SELECT_IMAGE,
+    payload: image,
+})

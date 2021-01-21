@@ -43,11 +43,9 @@ const Input: React.FC<InputProps> = (props) => {
     searchImage(query)
   }
 
-  console.log(query)
-
   return (
     <Form onSubmit={handleSubmitForm}>
-      <StyledInput onChange={handleChangeInput} value={query} />
+      <StyledInput placeholder="Search image" onChange={handleChangeInput} value={query} />
       <Button disabled={query === ''}>Search</Button>
     </Form>
   )

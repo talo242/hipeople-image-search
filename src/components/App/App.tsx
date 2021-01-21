@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import './App.css';
 import Form from '../Form'
 import ImageList from '../ImageList';
+import Lightbox from '../Lightbox';
 
 const MainContainer = styled.div`
   background-color: #efefef;
@@ -14,6 +14,7 @@ const MainContainer = styled.div`
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   font-family: 'Work Sans', sans-serif;
+  padding-bottom: 24px;
 `;
 
 const Title = styled.h1`
@@ -32,6 +33,7 @@ function App() {
         <Form />
       </SearchContainer>
       <ImageList />
+      <Lightbox />
     </MainContainer>
   );
 }

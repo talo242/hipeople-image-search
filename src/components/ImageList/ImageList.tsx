@@ -15,24 +15,31 @@ interface ImageListProps {
   images: Image[];
   query: string;
   searchImage: (query: string, page: number) => void;
+  selectImage: (image: Image) => void;
 }
 
 const ImageList = (props: ImageListProps) => {
-  const { images, query, searchImage } = props;
+  const { images, query, searchImage, selectImage } = props;
   const [page, setPage] = useState<number>(1);
 
   const handleOnClickMore = () => {
     const newPage = page + 1;
     searchImage(query, newPage);
     setPage(newPage)
-    console.log('handleOnClickMore');
+  }
+
+  const handleImageClick = (id: string) => {
+    const image = images.find(img => id === img.id);
+    if (image) {
+      selectImage(image)
+    }
   }
 
   return (
     <div>
       <ImageListContainer>
         {images.map(image => (
-          <Img key={image.id} src={image.urls.thumb} alt={image.alt_description} />
+          <Img id={image.id} key={image.id} onClick={handleImageClick} src={image.urls.thumb} alt={image.alt_description} />
         ))}
       </ImageListContainer>
       {
