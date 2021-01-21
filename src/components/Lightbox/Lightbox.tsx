@@ -34,7 +34,7 @@ const CloseButton = styled.button`
 `;
 
 const LightboxImg = styled.img`
-  max-heigth: 100vh;
+  max-height: 90vh;
 `;
 
 interface LightboxProps {

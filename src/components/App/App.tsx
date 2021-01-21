@@ -18,7 +18,7 @@ const MainContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  font-family: 'Lora', serif;
+  font-family: 'Fraunces', serif;
 `;
 
 const SearchContainer = styled.div`
