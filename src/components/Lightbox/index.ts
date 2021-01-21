@@ -14,7 +14,7 @@ const getNextImageSelector = (state: AppState, operator: number) => {
 const mapStateToProps = (state: AppState) => ({
   image: getSelectedImageSelector(state),
   nextImage: getNextImageSelector(state, 1),
-  previousImage: getNextImageSelector(state, -2),
+  previousImage: getNextImageSelector(state, -1),
 })
 
 export default connect(

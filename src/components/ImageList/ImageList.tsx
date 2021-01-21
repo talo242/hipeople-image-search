@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Img from '../Img';
 import Image from '../../interfaces/Image/Image.interface';
 import Button from '../Button';
+import PhotoPlaceholder from '../PhotoPlaceholder/photo.svg';
 
 const ImageListContainer = styled.div`
   width: 100%;
@@ -17,6 +18,19 @@ const ImageListContainer = styled.div`
     column-count: 3;
     column-gap: 16px;
   }
+`;
+
+const PlaceholderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+`;
+
+const Placeholder = styled.img`
+  display: flex;
+  width: 160px;
+  margin: 0 auto;
+  opacity: 0.2;
 `;
 interface ImageListProps {
   images: Image[];
@@ -41,14 +55,18 @@ const ImageList = (props: ImageListProps) => {
 
   return (
     <div>
-      <ImageListContainer>
-        {images.map(image => (
-          <Img id={image.id} key={image.id} onClick={handleImageClick} src={image.urls.thumb} alt={image.alt_description} />
-        ))}
-      </ImageListContainer>
-      {
-        images.length > 0 && <Button fullWidth onClick={handleOnClickMore}>Load more →</Button>
-      }
+      {images.length > 0 ? (
+        <ImageListContainer>
+          {images.map(image => (
+            <Img id={image.id} key={image.id} onClick={handleImageClick} src={image.urls.thumb} alt={image.alt_description} />
+          ))}
+        </ImageListContainer>
+      ) : (
+          <PlaceholderContainer>
+            <Placeholder src={PhotoPlaceholder} alt="Placeholder" />
+          </PlaceholderContainer>
+        )}
+      {images.length > 0 && <Button fullWidth onClick={handleOnClickMore}>Load more →</Button>}
     </div>
   )
 }
