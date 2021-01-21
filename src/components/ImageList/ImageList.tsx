@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import Img from '../Img';
 import Image from '../../interfaces/Image/Image.interface';
 import Button from '../Button';

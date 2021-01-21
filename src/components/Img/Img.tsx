@@ -9,6 +9,7 @@ const StyledImg = styled.img`
 const ImgButton = styled.button`
   border: none;
   background: transparent;
+  cursor: pointer;
 `;
 
 interface ImgProps {

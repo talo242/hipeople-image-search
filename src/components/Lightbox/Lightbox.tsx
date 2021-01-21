@@ -47,20 +47,19 @@ const Lightbox = (props: LightboxProps) => {
 
   const closeImage = () => selectImage(null);
 
-  const handleKeydown = (e: KeyboardEvent) => {
-    console.log(e)
-    const key = e.key;
-    if (key === 'Escape') {
-      closeImage();
-    }
-  };
-
   useEffect(() => {
+    const handleKeydown = (e: KeyboardEvent) => {
+      const key = e.key;
+      if (key === 'Escape') {
+        selectImage(null);
+      }
+    };
+
     window.addEventListener('keydown', handleKeydown);
     return () => {
       window.removeEventListener('keydown', handleKeydown);
     };
-  }, []);
+  }, [selectImage]);
 
   if (!image) return null;
 

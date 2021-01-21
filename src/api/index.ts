@@ -1,5 +1,4 @@
 import axios, { AxiosError } from 'axios';
-import Image from '../interfaces/Image/Image.interface';
 import SearchImageResponse from '../interfaces/SearchImageResponse/SearchImageResponse.interface';
 
 const client = axios.create({

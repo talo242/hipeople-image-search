@@ -1,4 +1,3 @@
-import { Dispatch } from "react";
 import Image from "../../interfaces/Image/Image.interface";
 import { SEARCH_IMAGES, FETCH_MORE } from "../actionTypes";
 
