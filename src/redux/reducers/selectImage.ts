@@ -1,17 +1,15 @@
-import Image from "../../interfaces/Image/Image.interface";
 import { SELECT_IMAGE } from "../actionTypes";
-
 interface SelectImage {
-  image: Image | null;
+  id: string | null;
 }
 
 interface SelectImageAction {
   type: typeof SELECT_IMAGE;
-  payload: Image | null;
+  payload: string | null;
 }
 
 const initialState: SelectImage = {
-  image: null
+  id: null
 }
 
 const selectImage = (state = initialState, action: SelectImageAction): SelectImage => {
@@ -19,7 +17,7 @@ const selectImage = (state = initialState, action: SelectImageAction): SelectIma
     case SELECT_IMAGE:
       return ({
         ...state,
-        image: action.payload
+        id: action.payload,
       })
     default:
       return state;

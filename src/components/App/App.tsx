@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { selectImage } from '../../redux/actions';
 import Form from '../Form'
 import ImageList from '../ImageList';
 import Lightbox from '../Lightbox';
@@ -14,7 +15,7 @@ const MainContainer = styled.div`
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   font-family: 'Work Sans', sans-serif;
-  padding-bottom: 24px;
+  padding: 16px 16px 24px;
 `;
 
 const Title = styled.h1`
@@ -25,7 +26,12 @@ const SearchContainer = styled.div`
   margin-top: 16px;
 `;
 
-function App() {
+interface AppProps {
+  selectedImage: string | null
+}
+
+function App(props: AppProps) {
+  const { selectedImage } = props;
   return (
     <MainContainer>
       <SearchContainer>
@@ -33,7 +39,11 @@ function App() {
         <Form />
       </SearchContainer>
       <ImageList />
-      <Lightbox />
+      {
+        selectedImage && (
+          <Lightbox />
+        )
+      }
     </MainContainer>
   );
 }

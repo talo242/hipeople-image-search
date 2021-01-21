@@ -35,15 +35,18 @@ const CloseButton = styled.button`
 
 const LightboxImg = styled.img`
   max-height: 90vh;
+  max-width: 95vw;
 `;
 
 interface LightboxProps {
   image: Image | null;
-  selectImage: (image: Image | null) => void;
+  nextImage: string | null;
+  previousImage: string | null;
+  selectImage: (image: string | null) => void;
 }
 
 const Lightbox = (props: LightboxProps) => {
-  const { image, selectImage } = props;
+  const { image, nextImage, previousImage, selectImage } = props;
 
   const closeImage = () => selectImage(null);
 
@@ -52,6 +55,10 @@ const Lightbox = (props: LightboxProps) => {
       const key = e.key;
       if (key === 'Escape') {
         selectImage(null);
+      } else if (key === 'ArrowRight') {
+        selectImage(nextImage);
+      } else if (key === 'ArrowLeft') {
+        selectImage(previousImage);
       }
     };
 
@@ -59,7 +66,7 @@ const Lightbox = (props: LightboxProps) => {
     return () => {
       window.removeEventListener('keydown', handleKeydown);
     };
-  }, [selectImage]);
+  }, [nextImage, previousImage, selectImage]);
 
   if (!image) return null;
 

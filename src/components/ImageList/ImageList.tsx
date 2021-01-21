@@ -7,15 +7,22 @@ import Button from '../Button';
 const ImageListContainer = styled.div`
   width: 100%;
   max-width: 640px;
-  padding-top: 32px;
-  column-count: 3;
-  column-gap: 16px;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: 640px) {
+    display: block;
+    column-count: 3;
+    column-gap: 16px;
+  }
 `;
 interface ImageListProps {
   images: Image[];
   query: string;
   searchImage: (query: string, page: number) => void;
-  selectImage: (image: Image) => void;
+  selectImage: (image: string) => void;
 }
 
 const ImageList = (props: ImageListProps) => {
@@ -29,10 +36,7 @@ const ImageList = (props: ImageListProps) => {
   }
 
   const handleImageClick = (id: string) => {
-    const image = images.find(img => id === img.id);
-    if (image) {
-      selectImage(image)
-    }
+    selectImage(id)
   }
 
   return (
