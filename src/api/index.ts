@@ -6,7 +6,7 @@ const client = axios.create({
     responseType: 'json',
     headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Client-ID jCnCGoIooO-KrY5XouHb7T6l6RqP_Qd1UJo112z_2tU'
+        'Authorization': `Client-ID ${process.env.REACT_APP_UNSPLASH_API_KEY}`
     }
 })
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { selectImage } from '../../redux/actions';
 import Form from '../Form'
 import ImageList from '../ImageList';
 import Lightbox from '../Lightbox';
